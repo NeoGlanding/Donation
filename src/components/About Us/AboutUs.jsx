@@ -4,7 +4,7 @@ import 'aos/dist/aos.css'
 
 function AboutUs() {
     return (
-        <div data-aos="fade-right">
+        <div data-aos="fade-right" id="about">
             <h2 className="about_us_header">About Us</h2>
             <div className="about_us_information">
                 <p>

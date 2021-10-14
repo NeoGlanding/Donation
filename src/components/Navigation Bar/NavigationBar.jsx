@@ -8,9 +8,9 @@ const Navbar = props => {
                 <p>Logo</p>
             </div>
             <div className="container_navbar_end">
-                <p>Home</p>
-                <p>About</p>
-                <p>Donation</p>
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#form">Donation</a>
             </div>
         </nav>
     )

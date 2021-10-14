@@ -42,7 +42,7 @@ function Form(props) {
     console.log(isSubmit)
 
     return (
-        <div data-aos="fade-left" className="form_wrapper">
+        <div id="form" data-aos="fade-left" className="form_wrapper">
             <h2>Donation Form</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="separator">
