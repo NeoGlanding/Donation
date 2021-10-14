@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-https://musing-thompson-b681d3.netlify.app/#about
+https://donation-tyr.netlify.app/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
