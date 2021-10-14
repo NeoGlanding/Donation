@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {useForm} from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
+import swal from 'sweetalert2'
 
 import 'aos/dist/aos.css'
 
@@ -21,10 +22,10 @@ function Form(props) {
     const schema = yup.object({
         donation : yup.number().required().min(10),
         email : yup.string().email().required(),
-        fullname : yup.string().matches(/^[a-zA-Z\s]+$/,"Name is Alphabet Only").required(),
+        fullName : yup.string().matches(/^[a-zA-Z\s]+$/,"Name is Alphabet Only").required(),
         nric : yup.string().required().matches(/^[TFSG]\d{7}[A-Z]$/,"Invalid NRIC"),
         address : yup.string().min(10).max(60),
-        phone_number : yup.string().min(10).matches(/^(08\d{8,12}$|\+62\d{7,11}$)/,"Invalid Phone Number")
+        phoneNumber : yup.string().min(10).matches(/^(08\d{8,12}$|\+62\d{7,11}$)/,"Invalid Phone Number")
         
     })
 
@@ -32,14 +33,11 @@ function Form(props) {
         resolver: yupResolver(schema)
       });
 
-    useEffect(() => {
-        console.log(form)
-        console.log(errors)
-    },[form,errors])
-
+    const submitted = e => {
+        setIsSubmit(true);
+    }
+    
     let input = watch()
-
-    console.log(isSubmit)
 
     return (
         <div id="form" data-aos="fade-left" className="form_wrapper">
@@ -61,8 +59,8 @@ function Form(props) {
                 <div className="separator">
                     <div className="input_packing">
                         <p>Full Name</p>
-                        <input type="text" placeholder="Full Name" {...register("fullname")}/>
-                        <p>{input.fullName || isSubmit ? errors.fullname?.message : null}</p>
+                        <input type="text" placeholder="Full Name" {...register("fullName")}/>
+                        <p>{input.fullName || isSubmit ? errors.fullName?.message : null}</p>
                     </div>
                     <div className="input_packing">
                         <p>NRIC</p>
@@ -74,7 +72,7 @@ function Form(props) {
                 <div className="input_packing_2">
                     <p>Phone Number</p>
                     <input type="text" placeholder="Phone Number" {...register("phoneNumber")}/>
-                    <p>{input.phoneNumber || isSubmit ? errors.phone_number?.message : null}</p>
+                    <p>{input.phoneNumber || isSubmit ? errors.phoneNumber?.message : null}</p>
                 </div>
 
                 <div className="input_packing_3">
@@ -84,7 +82,7 @@ function Form(props) {
                 </div>
                 
                 <div className="flex-center">
-                    <button type="submit" value="Submit" onClick={() => setIsSubmit(true)}>Submit Donation</button>
+                    <button type="submit" value="Submit" onClick={submitted}>Submit Donation</button>
                 </div>
             </form>
         </div>

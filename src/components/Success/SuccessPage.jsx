@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import swal from 'sweetalert2'
+
 
 const Background = styled.div`
     padding: 0;
@@ -20,6 +22,11 @@ const Tulisan = styled.h1`
 `
 
 function SuccessPage() {
+    swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Thank you for the donation'
+    })
     return (
         <Background>
             <Tulisan>Thanks for Submitting</Tulisan>
