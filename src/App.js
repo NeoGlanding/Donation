@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import AOS from 'aos'
+
+import Navbar from './components/Navigation Bar/NavigationBar';
+import Header from './components/Header/Header';
+import AboutUs from './components/About Us/AboutUs';
+import Form from './components/Form/Form';
+import SuccessPage from './components/Success/SuccessPage';
 
 function App() {
+
+  const [success, setIsSuccess] = useState(false)
+
+
+  React.useEffect(() => {
+    AOS.init()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      {
+        !success ?
+          <React.Fragment>
+            <Navbar />
+            <Header />
+            <AboutUs />
+            <Form setIsSuccess={setIsSuccess}/>
+          </React.Fragment>
+          :
+          <SuccessPage />
+      }
+    </React.Fragment>
   );
 }
 

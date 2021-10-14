@@ -1,0 +1,46 @@
+.header {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+}
+
+.img_container {
+    width: inherit;
+    height: inherit;
+    filter: brightness(0.4);
+}
+
+.header .img_container img {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+}
+
+.text_header {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text_header h1 {
+    text-align: center;
+    font-size: 5rem;
+    margin: 0;
+}
+
+.text_header p {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .text_header h1 {
+        font-size: 3rem;
+    }
+    .text_header p {
+        text-align: center;
+        font-size: 1rem;
+    }
+}
